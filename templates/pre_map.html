@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h1>Наведите на карте нужную область</h1>
+
+<br>
+
+<body>
+<div id="map" style="width: 600px; height: 400px"></div>
+</body>
+
+<br>
+
+{% if chng %}
+
+<script>
+           function getURL() {
+                window.location.href="/set_map/" + window.location.href.slice(
+                window.location.href.indexOf("#") + 1) + "/1";
+           }
+
+</script>
+
+{% else %}
+
+<script>
+           function getURL() {
+                window.location.href="/set_map/" + window.location.href.slice(window.location.href.indexOf("#") + 1) + "/0";
+           }
+
+</script>
+{% endif %}
+<button type="button" onclick="getURL();">Принять</button>
+</form>
+{% endblock %}
